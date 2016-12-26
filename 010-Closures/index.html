@@ -1,0 +1,29 @@
+<html>
+  <head>
+    <title>Closure example</title>
+    <script>
+      window.onload = function () {
+        setup();
+      }
+      function setup() {
+        ele1 = document.getElementById("time1");
+        ele2 = document.getElementById("time2");
+        makeTimer(ele1, 500);
+        makeTimer(ele2, 500,200);
+      }
+      function makeTimer(ele, delay, start) {
+        var counter;
+        start ? (counter = start) : (counter = 0);
+        setInterval(timeIt, delay);
+        function timeIt() {
+          ele.innerHTML = counter;
+          counter++;
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <div>Timer 1: <span id="time1">0</span></div>
+    <div>Timer 2: <span id="time2">0</span></div>
+  </body>
+</html>
